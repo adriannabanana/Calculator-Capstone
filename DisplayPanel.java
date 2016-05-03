@@ -3,7 +3,7 @@
 /**
  * Write a description of class DisplayPanel here.
  * 
- * @author (your name) 
+ * @Adrianna 
  * @version (a version number or a date)
  */
 public class DisplayPanel

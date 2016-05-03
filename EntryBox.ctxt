@@ -2,4 +2,6 @@
 comment0.params=canvas
 comment0.target=EntryBox(DisplayPanel)
 comment0.text=\r\n\ Initializes\ a\ new\ instance\ of\ the\ EntryBox\ class\r\n
-numComments=1
+comment1.params=str
+comment1.target=void\ setTextTo(java.lang.String)
+numComments=2

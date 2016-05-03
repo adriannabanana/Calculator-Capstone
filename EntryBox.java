@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.JPanel;
+
 /**
  * Text box where numbers/calculations will be displayed
  * 
@@ -18,10 +19,11 @@ public class EntryBox extends JPanel
     public EntryBox(DisplayPanel canvas)
     {
         this.display = canvas;
-        this.calcBox = new JTextField("0", 10);
+        this.calcBox = new JTextField("0",25);
         this.add(this.calcBox);
     }
-
-    
-
+    public void setTextTo(String str)
+    {
+        this.calcBox.setText(str);
+    }
 }
