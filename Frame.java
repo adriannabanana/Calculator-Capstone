@@ -27,8 +27,8 @@ public class Frame extends JFrame
     public Frame()
     {
         this.canvas = new DisplayPanel();
-        this.buttons = new ButtonPanel(this.canvas);
         this.entry = new EntryBox(this.canvas);
+        this.buttons = new ButtonPanel(this.canvas, this.entry);
         this.setLayout(new BorderLayout());
         
         this.add(this.buttons, BorderLayout.CENTER);
