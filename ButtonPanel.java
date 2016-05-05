@@ -19,8 +19,8 @@ public class ButtonPanel extends JPanel
     private int oldNum;
     /** the most recently pressed number */
     private int currentNum;
-    /** current action */
-    private String action;
+    /** operation to perform */
+    private boolean operation;
     /** the panel where the buttons will be displayed */
     private DisplayPanel display;
     /** clear button */
@@ -38,6 +38,10 @@ public class ButtonPanel extends JPanel
     /** entry panel */
     private EntryBox entry;
     
+    private String input;
+    
+    private Calculate calc;
+    
     /**
      * Initializes a new instance of the ButtonPanel class
      */
@@ -45,8 +49,10 @@ public class ButtonPanel extends JPanel
     {
         this.currentNum = 0;
         this.oldNum = 0;
+        this.input = "";
         this.display = canvas;
         this.entry = entry;
+        this.calc = new Calculate();
         this.setLayout(new GridLayout(4,4));
         this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
 
@@ -90,42 +96,41 @@ public class ButtonPanel extends JPanel
         public void actionPerformed(ActionEvent event)
         {
             switch(event.getActionCommand()) {
-                
                 case "1":
-                    currentNum = 1;
-                    
-                    if (action == null && currentNum != 0)
+                    if (currentNum == 0)
                     {
-                        entry.setTextTo(currentNum + "1");
-                        oldNum = currentNum;
+                        entry.setTextTo(input+"1");
+                        currentNum = 1;
+                    }
+                    else
+                    {
+                        entry.setTextTo(input+currentNum + "1");
                         currentNum = Integer.valueOf(currentNum+"1");
                     }
-                        
-                    //oldNum = currentNum;
-                    //currentNum = 1;
-                    //entry.setTextTo("1");
-                    action = null;
                     break;
                 case "2":
-                    if (action == null && currentNum != 0)
+                    if (currentNum == 0)
+                    {
+                        entry.setTextTo("2");
+                        currentNum = 2;
+                    }
+                    else
                     {
                         entry.setTextTo(currentNum + "2");
-                        oldNum = currentNum;
                         currentNum = Integer.valueOf(currentNum+"2");
                     }
-                    //oldNum = currentNum;
-                    //currentNum = 2;
-                    action = null;
                     break;
                 case "3":
-                    if (action == null && currentNum != 0)
+                    if (currentNum == 0)
+                    {
+                        entry.setTextTo("3");
+                        currentNum = 3;
+                    }
+                    else
                     {
                         entry.setTextTo(currentNum + "3");
-                        oldNum = currentNum;
                         currentNum = Integer.valueOf(currentNum+"3");
                     }
-                    //oldNum = currentNum;
-                    //currentNum = 3;
                     break;
                 case "4":
                     oldNum = currentNum;
@@ -157,26 +162,41 @@ public class ButtonPanel extends JPanel
                     break;
                 case "C":
                     entry.setTextTo("0");
-                    action = "clear";
+                    currentNum = 0;
+                    operation = false;
                     break;
                 case "x":
-                    int temp = currentNum;
-                    currentNum *= oldNum;
-                    oldNum = temp;
-                    entry.setTextTo(String.valueOf(currentNum));
-                    action = "multiply";
+                    input = currentNum + " x ";
+                    entry.setTextTo(input);
+                    operation = true;
+                    currentNum = 0;
                     break;
                 case "÷":
-                    action = "divide";
+                    input = currentNum + " ÷ ";
+                    entry.setTextTo(input);
+                    operation = true;
+                    currentNum = 0;
                     break;
                 case "-":
-                    action = "subtract";
+                    input = currentNum + " - ";
+                    entry.setTextTo(input);
+                    operation = true;
+                    currentNum = 0;
                     break;
                 case "+":
-                    action = "multiply";
+                    input = currentNum + " + ";
+                    entry.setTextTo(input);
+                    operation = true;
+                    currentNum = 0;
                     break;
                 case "=":
-                    action = "equals";
+                    if (operation)
+                    {
+                        currentNum = calc.calculateInput(input);
+                        entry.setTextTo(currentNum+"");
+                        input = ""+currentNum;
+                        operation = false;
+                    }  
                     break;
             }
                 

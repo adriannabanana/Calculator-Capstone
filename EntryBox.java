@@ -19,7 +19,7 @@ public class EntryBox extends JPanel
     public EntryBox(DisplayPanel canvas)
     {
         this.display = canvas;
-        this.calcBox = new JTextField("0",25);
+        this.calcBox = new JTextField("",25);
         this.add(this.calcBox);
     }
     public void setTextTo(String str)
