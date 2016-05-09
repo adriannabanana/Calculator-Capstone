@@ -8,8 +8,8 @@
  */
 public class Calculate
 {
-    private int num1;
-    private int num2;
+    private double num1;
+    private double num2;
     private int firstOperationIndex;
     private int secondOperationIndex;
     private int numOperations; 
@@ -30,7 +30,7 @@ public class Calculate
         this.operation = "";
     }
     
-    public int calculateInput(String str)
+    public double calculateInput(String str)
     {
         this.remainingCalc = str;
         this.firstOperationIndex = str.length()-1;
@@ -82,10 +82,27 @@ public class Calculate
 
         while (this.numOperations > 1)
         {
-            this.num1 = Integer.valueOf(this.remainingCalc.substring(0,this.firstOperationIndex));
-            this.num2 = Integer.valueOf(this.remainingCalc.substring(this.firstOperationIndex+1,this.secondOperationIndex));
+            this.num1 = Double.parseDouble(this.remainingCalc.substring(0,this.firstOperationIndex));
+            this.num2 = Double.parseDouble(this.remainingCalc.substring(this.firstOperationIndex+1,this.secondOperationIndex));
             if (this.operation.equals("multiply"))
             {
+                this.remainingCalc = (this.num1*this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+                this.numOperations--;
+            }
+            if (this.operation.equals("divide"))
+            {
+                this.remainingCalc = (this.num1/this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+                this.numOperations--;
+            }
+            if (this.operation.equals("add"))
+            {
+                this.remainingCalc = (this.num1+this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+                this.numOperations--;
+            }
+            if (this.operation.equals("subtract"))
+            {
+                this.remainingCalc = (this.num1-this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+                this.numOperations--;
             }
             
             if (this.remainingCalc.indexOf("x") != -1)
@@ -122,7 +139,28 @@ public class Calculate
             }
         }
         
-        this.num1 = Integer.valueOf(this.remainingCalc.substring(0,this.firstOperationIndex));
-        this.num2 = Integer.valueOf(this.remainingCalc.substring(this.firstOperationIndex+1,this.remainingCalc.length()-1));
+        this.num1 = Double.parseDouble(this.remainingCalc.substring(0,this.firstOperationIndex));
+        this.num2 = Double.parseDouble(this.remainingCalc.substring(this.firstOperationIndex+1,this.remainingCalc.length()-1));
+        if (this.operation.equals("multiply"))
+        {
+            this.remainingCalc = (this.num1*this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+            this.numOperations--;
+        }
+        if (this.operation.equals("divide"))
+        {
+            this.remainingCalc = (this.num1/this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+            this.numOperations--;
+        }
+        if (this.operation.equals("add"))
+        {
+            this.remainingCalc = (this.num1+this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+            this.numOperations--;
+        }
+        if (this.operation.equals("subtract"))
+        {
+            this.remainingCalc = (this.num1-this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
+            this.numOperations--;
+        }
+        return Double.parseDouble(this.remainingCalc);
     }
 }

@@ -16,9 +16,9 @@ public class ButtonPanel extends JPanel
     /** array of number buttons */
     private JButton[] numButtons;
     /** previously pressed number */
-    private int oldNum;
+    private double oldNum;
     /** the most recently pressed number */
-    private int currentNum;
+    private double currentNum;
     /** operation to perform */
     private boolean operation;
     /** the panel where the buttons will be displayed */
@@ -97,88 +97,141 @@ public class ButtonPanel extends JPanel
         {
             switch(event.getActionCommand()) {
                 case "1":
+                    input+="1";
+                    entry.setTextTo(input);
                     if (currentNum == 0)
                     {
-                        entry.setTextTo(input+"1");
                         currentNum = 1;
                     }
                     else
                     {
-                        entry.setTextTo(input+currentNum + "1");
-                        currentNum = Integer.valueOf(currentNum+"1");
+                        currentNum = Double.parseDouble(currentNum+"1");
                     }
                     break;
                 case "2":
+                    input+="2";
+                    entry.setTextTo(input);
                     if (currentNum == 0)
                     {
-                        entry.setTextTo("2");
                         currentNum = 2;
                     }
                     else
                     {
-                        entry.setTextTo(currentNum + "2");
-                        currentNum = Integer.valueOf(currentNum+"2");
+                        currentNum = Double.parseDouble(currentNum+"2");
                     }
                     break;
                 case "3":
+                    input+="3";
+                    entry.setTextTo(input);
                     if (currentNum == 0)
                     {
-                        entry.setTextTo("3");
                         currentNum = 3;
                     }
                     else
                     {
-                        entry.setTextTo(currentNum + "3");
-                        currentNum = Integer.valueOf(currentNum+"3");
+                        currentNum = Double.parseDouble(currentNum+"3");
                     }
                     break;
                 case "4":
-                    oldNum = currentNum;
-                    currentNum = 4;
+                    input+="4";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 4;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"4");
+                    }
                     break;
                 case "5":
-                    oldNum = currentNum;
-                    currentNum = 5;
+                    input+="5";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 5;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"5");
+                    }
                     break;
                 case "6":
-                    oldNum = currentNum;
-                    currentNum = 6;
+                    input+="6";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 6;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"6");
+                    }
                     break;
                 case "7":
-                    oldNum = currentNum;
-                    currentNum = 7;
+                    input+="7";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 7;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"7");
+                    }
                     break;
                 case "8":
-                    oldNum = currentNum;
-                    currentNum = 8;
+                    input+="8";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 8;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"8");
+                    }
                     break;
                 case "9":
-                    oldNum = currentNum;
-                    currentNum = 9;
+                    input+="9";
+                    entry.setTextTo(input);
+                    if (currentNum == 0)
+                    {
+                        currentNum = 9;
+                    }
+                    else
+                    {
+                        currentNum = Double.parseDouble(currentNum+"9");
+                    }
                     break;
                 case "0":
-                    oldNum = currentNum;
-                    currentNum = 0;
+                    input += "0";
+                    entry.setTextTo(input);
+                    if (currentNum != 0)
+                    {
+                        currentNum = Double.parseDouble(currentNum+"0");
+                    }
                     break;
                 case "C":
                     entry.setTextTo("0");
                     currentNum = 0;
                     operation = false;
+                    input = "";
                     break;
                 case "x":
-                    input = currentNum + " x ";
+                    input += " x ";
                     entry.setTextTo(input);
                     operation = true;
                     currentNum = 0;
                     break;
                 case "÷":
-                    input = currentNum + " ÷ ";
+                    input += " ÷ ";
                     entry.setTextTo(input);
                     operation = true;
                     currentNum = 0;
                     break;
                 case "-":
-                    input = currentNum + " - ";
+                    input += " - ";
                     entry.setTextTo(input);
                     operation = true;
                     currentNum = 0;
