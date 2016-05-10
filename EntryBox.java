@@ -11,17 +11,16 @@ public class EntryBox extends JPanel
 {
     /** The text box for calculations */
     private JTextField calcBox;
-    /** the panel where the box will be displayed */
-    //private DisplayPanel display;
+
     /**
      * Initializes a new instance of the EntryBox class
      */
     public EntryBox()
     {
-        //this.display = canvas;
         this.calcBox = new JTextField("",25);
         this.add(this.calcBox);
     }
+    
     public void setTextTo(String str)
     {
         this.calcBox.setText(str);

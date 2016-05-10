@@ -8,169 +8,65 @@ import java.util.ArrayList;
  */
 public class Calculate
 {
-    private double num1;
-    private double num2;
-    private int firstOperationIndex;
-    private int secondOperationIndex;
-    private int numOperations; 
-    private String remainingCalc;
-    private String operation;
+    private double tempResult;
     
     /**
-     * Default constructor for objects of class Calculation
+     * Initializes a new instance of the Calculate class
      */
     public Calculate()
     {   
-        this.num1 = 0;
-        this.num2 = 0;
-        this.firstOperationIndex = 0;
-        this.secondOperationIndex = 0;
-        this.numOperations = 0;
-        this.remainingCalc = "";
-        this.operation = "";
+        this.tempResult = 0;
     }
     
-    public double calculateInput(ArrayList<Double> nums, ArrayList<Character> commands)
+    public double calculateInput(ArrayList<Double> numList, ArrayList<Character> commandList)
     {
-        
-        for (int i = 0; i < commands.size(); i++)
+        ArrayList<Double> nums = numList;
+        ArrayList<Character> commands = commandList;
+        for (int i = 0; i < commandList.size(); i++)
         {
+            this.tempResult = 0;
             if (commands.get(i) == '*' || commands.get(i) == '/')
             {
-                double tempResult = (nums.get(i) commands.get(i) nums.get(i+1));
+                if (commands.get(i) == '*')
+                {
+                    tempResult = nums.get(i) * nums.get(i+1);
+                    nums.remove(i+1);
+                    nums.set(i, tempResult);
+                    commands.remove(i);
+                    //i--;
+                }
+                else if (commands.get(i) == '/')
+                {
+                    tempResult = nums.get(i) / nums.get(i+1);
+                    nums.remove(i+1);
+                    nums.set(i, tempResult);
+                    commands.remove(i);
+                    //i--;
+                }
             }
-            
         }
-//         this.remainingCalc = str;
-//         this.numOperations = commands.size();
-//         this.firstOperationIndex = str.length()-1;
-//         if (str.indexOf("x") != -1)
-//         {
-//             if (str.indexOf("x") < this.firstOperationIndex)
-//             {
-//                 this.secondOperationIndex = this.firstOperationIndex;
-//                 this.firstOperationIndex = str.indexOf("x");
-//                 this.operation = "multiply";
-//             }
-//             this.numOperations++;
-//         }
-//         if (str.indexOf("÷") != -1)
-//         {
-//             if (str.indexOf("÷") < this.firstOperationIndex)
-//             {
-//                 this.secondOperationIndex = this.firstOperationIndex;
-//                 this.firstOperationIndex = str.indexOf("÷");
-//                 this.operation = "divide";
-//             }
-//             this.numOperations++;
-//         }
-//         if (str.indexOf("+") != -1 )
-//         {
-//             if (str.indexOf("+") < this.firstOperationIndex)
-//             {
-//                 this.secondOperationIndex = this.firstOperationIndex;
-//                 this.firstOperationIndex = str.indexOf("+");
-//                 this.operation = "add";
-//             }
-//             this.numOperations++;
-//         }
-//         if (str.indexOf("-") != -1)
-//         {
-//             if (str.indexOf("-") < this.firstOperationIndex)
-//             {
-//                 this.secondOperationIndex = this.firstOperationIndex;
-//                 this.firstOperationIndex = str.indexOf("-");
-//                 this.operation = "subtract";
-//             }
-//             this.numOperations++;
-//         }
-//         
-//         if (this.firstOperationIndex == 0 || this.firstOperationIndex == str.length()-1)
-//         {
-//             return 0;
-//         }
-// 
-//         while (this.numOperations > 1)
-//         {
-//             this.num1 = Double.parseDouble(this.remainingCalc.substring(0,this.firstOperationIndex));
-//             this.num2 = Double.parseDouble(this.remainingCalc.substring(this.firstOperationIndex+1,this.secondOperationIndex));
-//             if (this.operation.equals("multiply"))
-//             {
-//                 this.remainingCalc = (this.num1*this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//                 this.numOperations--;
-//             }
-//             if (this.operation.equals("divide"))
-//             {
-//                 this.remainingCalc = (this.num1/this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//                 this.numOperations--;
-//             }
-//             if (this.operation.equals("add"))
-//             {
-//                 this.remainingCalc = (this.num1+this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//                 this.numOperations--;
-//             }
-//             if (this.operation.equals("subtract"))
-//             {
-//                 this.remainingCalc = (this.num1-this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//                 this.numOperations--;
-//             }
-//             
-//             if (this.remainingCalc.indexOf("x") != -1)
-//             {
-//                 if (str.indexOf("x") < this.firstOperationIndex)
-//                 {
-//                     this.secondOperationIndex = this.firstOperationIndex;
-//                     this.firstOperationIndex = str.indexOf("x");
-//                 }
-//             }
-//             if (this.remainingCalc.indexOf("÷") != -1)
-//             {
-//                 if (str.indexOf("÷") < this.firstOperationIndex)
-//                 {
-//                     this.secondOperationIndex = this.firstOperationIndex;
-//                     this.firstOperationIndex = str.indexOf("÷");
-//                 }
-//             }
-//             if (this.remainingCalc.indexOf("+") != -1 )
-//             {
-//                 if (str.indexOf("+") < this.firstOperationIndex)
-//                 {
-//                     this.secondOperationIndex = this.firstOperationIndex;
-//                     this.firstOperationIndex = str.indexOf("+");
-//                 }
-//             }
-//             if (this.remainingCalc.indexOf("-") != -1)
-//             {
-//                 if (str.indexOf("-") < this.firstOperationIndex)
-//                 {
-//                     this.secondOperationIndex = this.firstOperationIndex;
-//                     this.firstOperationIndex = str.indexOf("-");
-//                 }
-//             }
-//         }
-//         
-//         this.num1 = Double.parseDouble(this.remainingCalc.substring(0,this.firstOperationIndex));
-//         this.num2 = Double.parseDouble(this.remainingCalc.substring(this.firstOperationIndex+1,this.remainingCalc.length()));
-//         if (this.operation.equals("multiply"))
-//         {
-//             this.remainingCalc = (this.num1*this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//             this.numOperations--;
-//         }
-//         if (this.operation.equals("divide"))
-//         {
-//             this.remainingCalc = (this.num1/this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//             this.numOperations--;
-//         }
-//         if (this.operation.equals("add"))
-//         {
-//             this.remainingCalc = (this.num1+this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//             this.numOperations--;
-//         }
-//         if (this.operation.equals("subtract"))
-//         {
-//             this.remainingCalc = (this.num1-this.num2) + this.remainingCalc.substring(this.secondOperationIndex,this.remainingCalc.length()-1);
-//             this.numOperations--;
-//         }
-         return Double.parseDouble(this.remainingCalc);
+        for (int i = 0; i < commandList.size(); i++)
+        {
+            this.tempResult = 0;
+            if (commands.get(i) == '+')
+            {
+                tempResult = nums.get(i) + nums.get(i+1);
+                nums.remove(i+1);
+                nums.set(i, tempResult);
+                commands.remove(i);
+                i--;
+            }
+            else if (commands.get(i) == '-')
+            {
+                tempResult = nums.get(i) - nums.get(i+1);
+                nums.remove(i+1);
+                nums.set(i, tempResult);
+                commands.remove(i);
+                i--;
+            }
+        }
+        numList = nums;
+        commandList = commands;
+        return nums.get(0);
     }
 }

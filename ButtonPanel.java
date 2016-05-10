@@ -7,7 +7,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 
 /**
- * Buttons on calculator (Numbers, decimal point, etc)
+ * Buttons on calculator that the user inputs 
  * 
  * @author Adrianna Fu 
  * @version 4/13/16
@@ -16,14 +16,8 @@ public class ButtonPanel extends JPanel
 {
     /** array of number buttons */
     private JButton[] numButtons;
-    /** previously pressed number */
-    private double oldNum;
-    /** the most recently pressed number */
+    /** most recently pressed number */
     private double currentNum;
-    /** operation to perform */
-    private boolean operation;
-    /** the panel where the buttons will be displayed */
-    //private DisplayPanel display;
     /** clear button */
     private JButton clear; 
     /** equals button */
@@ -38,34 +32,34 @@ public class ButtonPanel extends JPanel
     private JButton divide;
     /** entry panel */
     private EntryBox entry;
-    
+    /** the input that appears in the calc box */
     private String input;
-    
+    /** performs calculations */
     private Calculate calc;
-    
+    /** list of commands (operations) */
     private ArrayList<Character> commands;
-    
+    /** list of numbers that will be operated on */
     private ArrayList<Double> nums;
-    
+    /** current number in the form of a string */
     private String currentNumStr;
     
     /**
      * Initializes a new instance of the ButtonPanel class
      */
-    public ButtonPanel( EntryBox entry)
+    public ButtonPanel(EntryBox entry)
     {
         this.currentNum = 0;
-        this.oldNum = 0;
+        this.currentNumStr = "";
         this.input = "";
-        //this.display = canvas;
+        
         this.entry = entry;
         this.calc = new Calculate();
-        this.currentNumStr = "";
         this.commands = new ArrayList<Character>();
         this.nums = new ArrayList<Double>();
+        
         this.setLayout(new GridLayout(4,4));
         this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
-
+        
         this.numButtons = new JButton[10];
         this.numButtons[0] = new JButton("0");
         this.clear = new JButton("C");
@@ -74,6 +68,7 @@ public class ButtonPanel extends JPanel
         this.subtract = new JButton("-");
         this.multiply = new JButton("x");
         this.divide = new JButton("÷");
+        
         ClickListener listener = new ClickListener();
  
         for (int i = 9; i > 0; i--)
@@ -99,6 +94,7 @@ public class ButtonPanel extends JPanel
         this.add(this.addition);
         this.add(this.numButtons[0]);
         this.add(this.subtract);
+        
         this.equals.addActionListener(listener);
         this.addition.addActionListener(listener);
         this.numButtons[0].addActionListener(listener);
@@ -117,7 +113,6 @@ public class ButtonPanel extends JPanel
             {
                 entry.setTextTo("0");
                 currentNum = 0;
-                operation = false;
                 currentNumStr = "";
                 input = "";
             }
@@ -125,7 +120,6 @@ public class ButtonPanel extends JPanel
             {
                 input += "+";
                 entry.setTextTo(input);
-                operation = true;
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
                 currentNum = 0;
@@ -136,7 +130,6 @@ public class ButtonPanel extends JPanel
             {
                 input += " - ";
                 entry.setTextTo(input);
-                operation = true;
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
                 currentNum = 0;
@@ -148,7 +141,6 @@ public class ButtonPanel extends JPanel
             {
                 input += " x ";
                 entry.setTextTo(input);
-                operation = true;
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
                 currentNum = 0;
@@ -159,7 +151,6 @@ public class ButtonPanel extends JPanel
             {
                 input += " ÷ ";
                 entry.setTextTo(input);
-                operation = true;
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
                 currentNum = 0;
@@ -173,24 +164,22 @@ public class ButtonPanel extends JPanel
                 System.out.println(nums);
                 System.out.println(commands);
                 
-                if (operation)
+                if (commands.size() > 0)
                 {
                     currentNum = calc.calculateInput(nums,commands);
-                    
                     nums.clear();
                     commands.clear();
                     nums.add(currentNum);
                     entry.setTextTo(currentNum+"");
                     input = "" + currentNum;
-                    operation = false;
                     currentNumStr = "";
                 } 
             } 
             else 
             {
-               input+=str;
+               input += str;
                entry.setTextTo(input);
-               currentNumStr+=str; 
+               currentNumStr += str; 
             }
                 
         }
