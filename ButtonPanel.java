@@ -178,9 +178,10 @@ public class ButtonPanel extends JPanel
                     currentNum = calc.calculateInput(nums,commands);
                     
                     nums.clear();
+                    commands.clear();
                     nums.add(currentNum);
                     entry.setTextTo(currentNum+"");
-                    input = ""+currentNum;
+                    input = "" + currentNum;
                     operation = false;
                     currentNumStr = "";
                 } 
