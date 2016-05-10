@@ -16,8 +16,6 @@ public class Frame extends JFrame
     private static final int FRAME_HEIGHT = 400;
     /** buttons on calculator */
     private ButtonPanel buttons;
-    /** display panel */
-    private DisplayPanel canvas;
     /** entry panel */
     private EntryBox entry;
     
@@ -26,9 +24,8 @@ public class Frame extends JFrame
      */
     public Frame()
     {
-        this.canvas = new DisplayPanel();
-        this.entry = new EntryBox(this.canvas);
-        this.buttons = new ButtonPanel(this.canvas, this.entry);
+        this.entry = new EntryBox();
+        this.buttons = new ButtonPanel(this.entry);
         this.setLayout(new BorderLayout());
         
         this.add(this.buttons, BorderLayout.CENTER);
