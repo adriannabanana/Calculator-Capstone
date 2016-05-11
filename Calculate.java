@@ -8,6 +8,7 @@ import java.util.ArrayList;
  */
 public class Calculate
 {
+    /** the working number */
     private double tempResult;
     
     /**
@@ -18,8 +19,20 @@ public class Calculate
         this.tempResult = 0;
     }
     
+    /**
+     * Calculates the result based on the numbers and operations that the user pressed
+     *
+     * @param nums numbers that will be operated on
+     * @param commands the operations that will be performed on the numbers
+     * @return the result of the calculation
+     * @Precondition the size of nums should be one greater than that of commands
+     * @Precondition the user input should not include two operations in a row
+     * @Precondition the user input cannot begin or end with an operation 
+     * 
+     */
     public double calculateInput(ArrayList<Double> nums, ArrayList<Character> commands)
     {
+        // order of operations!! */ first, +- after
         for (int i = 0; i < commands.size(); i++)
         {
             if (commands.get(i) == '*' || commands.get(i) == '/')
@@ -58,9 +71,6 @@ public class Calculate
             }
         }
         
-        this.tempResult = nums.get(0);
-        nums.clear();
-        commands.clear();
-        return this.tempResult;
+        return nums.get(0);
     }
 }

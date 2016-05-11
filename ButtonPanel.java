@@ -105,11 +105,15 @@ public class ButtonPanel extends JPanel
         this.divide.addActionListener(listener);
     }
 
+    /**
+     * Responds to user input based on what he/she clicks
+     */
     public class ClickListener implements ActionListener
     {
         public void actionPerformed(ActionEvent event)
         {
             String str = event.getActionCommand();
+            
             if (str.equals("C"))
             {
                 entry.setTextTo("0");
@@ -175,7 +179,7 @@ public class ButtonPanel extends JPanel
                     currentNumStr = input;
                 } 
             } 
-            else 
+            else // in other words, if a number is pressed
             {
                input += str;
                entry.setTextTo(input);

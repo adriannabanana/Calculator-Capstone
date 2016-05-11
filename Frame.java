@@ -38,7 +38,7 @@ public class Frame extends JFrame
     }
 
     /**
-     * Creates a new Frame object which opens a window on the screen
+     * Creates a new Frame object which opens the calculator interface
      */
     public static void main(String args[])
     {

@@ -4,4 +4,5 @@ comment0.target=Calculate()
 comment0.text=\r\n\ Initializes\ a\ new\ instance\ of\ the\ Calculate\ class\r\n
 comment1.params=nums\ commands
 comment1.target=double\ calculateInput(java.util.ArrayList,\ java.util.ArrayList)
+comment1.text=\r\n\ Calculates\ the\ result\ based\ on\ the\ numbers\ and\ operations\ that\ the\ user\ pressed\r\n\r\n\ @param\ nums\ numbers\ that\ will\ be\ operated\ on\r\n\ @param\ commands\ the\ operations\ that\ will\ be\ performed\ on\ the\ numbers\r\n\ @return\ the\ result\ of\ the\ calculation\r\n\ @Precondition\ the\ size\ of\ nums\ should\ be\ one\ greater\ than\ that\ of\ commands\r\n\ @Precondition\ the\ user\ input\ should\ not\ include\ two\ operations\ in\ a\ row\r\n\ @Precondition\ the\ user\ input\ cannot\ begin\ or\ end\ with\ an\ operation\ \r\n\ \r\n
 numComments=2
