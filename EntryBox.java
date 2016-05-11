@@ -21,6 +21,11 @@ public class EntryBox extends JPanel
         this.add(this.calcBox);
     }
     
+    /**
+     * Sets text in the box to the String value passed into it
+     *
+     * @param str the value to be displayed
+     */
     public void setTextTo(String str)
     {
         this.calcBox.setText(str);
