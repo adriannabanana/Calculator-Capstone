@@ -1,0 +1,47 @@
+Class documentation
+<---- javadoc command: ---->
+C:\Program Files (x86)\BlueJ\jdk\bin\javadoc.exe
+-author
+-version
+-nodeprecated
+-package
+-noindex
+-notree
+-nohelp
+-nonavbar
+-source
+1.8
+-classpath
+C:\Program Files (x86)\BlueJ\lib\bluejcore.jar;C:\Program Files (x86)\BlueJ\lib\junit-4.8.2.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-core.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-device.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-gpio-extension.jar;C:\Program Files (x86)\BlueJ\lib\userlib\pi4j-service.jar;D:\Users\Family1\Documents\GitHub\Calculator-Capstone
+-d
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc
+-encoding
+UTF-8
+-charset
+UTF-8
+-docletpath
+C:\Program Files (x86)\BlueJ\lib\bjdoclet.jar
+-doclet
+bluej.doclet.doclets.formats.html.HtmlDoclet
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java
+<---- end of javadoc command ---->
+Loading source file D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java...
+Constructing Javadoc information...
+Standard Doclet version 1.8.0_40
+Building tree for all the packages and classes...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\Calculate.html...
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java:9: warning - @Adrianna is an unknown tag.
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java:9: warning - @5/3/16 is an unknown tag.
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java:33: warning - @Precondition is an unknown tag.
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java:33: warning - @Precondition is an unknown tag.
+D:\Users\Family1\Documents\GitHub\Calculator-Capstone\Calculate.java:33: warning - @Precondition is an unknown tag.
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\package-frame.html...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\package-summary.html...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\constant-values.html...
+Building index for all the packages and classes...
+Building index for all classes...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\allclasses-frame.html...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\allclasses-noframe.html...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\index.html...
+Generating D:\Users\Family1\Documents\GitHub\Calculator-Capstone\doc\stylesheet.css...
+5 warnings
