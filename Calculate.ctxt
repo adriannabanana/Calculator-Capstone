@@ -2,6 +2,6 @@
 comment0.params=
 comment0.target=Calculate()
 comment0.text=\r\n\ Initializes\ a\ new\ instance\ of\ the\ Calculate\ class\r\n
-comment1.params=numList\ commandList
+comment1.params=nums\ commands
 comment1.target=double\ calculateInput(java.util.ArrayList,\ java.util.ArrayList)
 numComments=2

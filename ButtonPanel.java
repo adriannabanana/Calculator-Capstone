@@ -60,6 +60,7 @@ public class ButtonPanel extends JPanel
         this.setLayout(new GridLayout(4,4));
         this.setComponentOrientation(ComponentOrientation.RIGHT_TO_LEFT);
         
+        // idea for creating an array of buttons from somewhere on StackOverflow
         this.numButtons = new JButton[10];
         this.numButtons[0] = new JButton("0");
         this.clear = new JButton("C");
@@ -115,10 +116,12 @@ public class ButtonPanel extends JPanel
                 currentNum = 0;
                 currentNumStr = "";
                 input = "";
+                nums.clear();
+                commands.clear();
             }
             else if (str.equals("+"))
             {
-                input += "+";
+                input += " + ";
                 entry.setTextTo(input);
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
@@ -161,18 +164,15 @@ public class ButtonPanel extends JPanel
             {
                 currentNum = Double.parseDouble(currentNumStr);
                 nums.add(currentNum);
-                System.out.println(nums);
-                System.out.println(commands);
                 
                 if (commands.size() > 0)
                 {
                     currentNum = calc.calculateInput(nums,commands);
                     nums.clear();
                     commands.clear();
-                    nums.add(currentNum);
-                    entry.setTextTo(currentNum+"");
                     input = "" + currentNum;
-                    currentNumStr = "";
+                    entry.setTextTo(input);
+                    currentNumStr = input;
                 } 
             } 
             else 
@@ -181,7 +181,6 @@ public class ButtonPanel extends JPanel
                entry.setTextTo(input);
                currentNumStr += str; 
             }
-                
         }
     }
 

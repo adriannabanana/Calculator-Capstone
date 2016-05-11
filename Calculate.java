@@ -18,13 +18,10 @@ public class Calculate
         this.tempResult = 0;
     }
     
-    public double calculateInput(ArrayList<Double> numList, ArrayList<Character> commandList)
+    public double calculateInput(ArrayList<Double> nums, ArrayList<Character> commands)
     {
-        ArrayList<Double> nums = numList;
-        ArrayList<Character> commands = commandList;
-        for (int i = 0; i < commandList.size(); i++)
+        for (int i = 0; i < commands.size(); i++)
         {
-            this.tempResult = 0;
             if (commands.get(i) == '*' || commands.get(i) == '/')
             {
                 if (commands.get(i) == '*')
@@ -33,7 +30,7 @@ public class Calculate
                     nums.remove(i+1);
                     nums.set(i, tempResult);
                     commands.remove(i);
-                    //i--;
+                    i--;
                 }
                 else if (commands.get(i) == '/')
                 {
@@ -41,32 +38,29 @@ public class Calculate
                     nums.remove(i+1);
                     nums.set(i, tempResult);
                     commands.remove(i);
-                    //i--;
+                    i--;
                 }
             }
         }
-        for (int i = 0; i < commandList.size(); i++)
+        for (int i = 0; i < commands.size(); i++)
         {
-            this.tempResult = 0;
             if (commands.get(i) == '+')
             {
-                tempResult = nums.get(i) + nums.get(i+1);
-                nums.remove(i+1);
-                nums.set(i, tempResult);
-                commands.remove(i);
-                i--;
+                tempResult = nums.get(0) + nums.get(1);
+                nums.remove(1);
+                nums.set(0, tempResult);
             }
             else if (commands.get(i) == '-')
             {
-                tempResult = nums.get(i) - nums.get(i+1);
-                nums.remove(i+1);
-                nums.set(i, tempResult);
-                commands.remove(i);
-                i--;
+                tempResult = nums.get(0) - nums.get(1);
+                nums.remove(1);
+                nums.set(0, tempResult);
             }
         }
-        numList = nums;
-        commandList = commands;
-        return nums.get(0);
+        
+        this.tempResult = nums.get(0);
+        nums.clear();
+        commands.clear();
+        return this.tempResult;
     }
 }
